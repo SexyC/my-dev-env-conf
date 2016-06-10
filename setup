@@ -12,6 +12,8 @@ else
 	exit -1
 fi
 
+echo "Current platform: ${PLATFORM}"
+
 if [ ! ${HOME} ]; then 
 	echo "Failure, HOME env not set"
 	exit -1
@@ -69,7 +71,7 @@ echo "setting zsh..."
 cp ${HOME}/my-dev-env-conf/zsh/.zshrc ${HOME}/.zshrc
 echo "setting zsh done"
 
-echo "setting tmux..."
+echo "setting tmux(${PLATFORM})..."
 cp ${HOME}/my-dev-env-conf/tmux/.tmux.conf.${PLATFORM} ${HOME}/.tmux.conf
 echo "setting tmux done"
 
