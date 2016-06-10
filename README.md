@@ -1,6 +1,8 @@
 # My development environment setup script for MacOS and Linux
 
 This is my development environment setup script for MacOS and Linux.
+Vim related configurations is maintained in another repository.
+[https://github.com/SexyC/my-vim-conf](https://github.com/SexyC/my-vim-conf)
 
 ### Install
 
