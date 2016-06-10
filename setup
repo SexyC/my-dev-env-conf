@@ -69,6 +69,15 @@ git clone https://github.com/SexyC/my-dev-env-conf.git ${HOME}/my-dev-env-conf
 
 echo "setting zsh..."
 cp ${HOME}/my-dev-env-conf/zsh/.zshrc ${HOME}/.zshrc
+
+# set oh-my-zsh path and system path to .zshrc
+if [ ${PLATFORM} = 'linux' ]; then
+	sed -i "s/[[:space:]]*export[[:space:]][[:space:]]*ZSH=.*$/export ZSH=${HOME//\//\\/}\/.oh-my-zsh/g" ${HOME}/.zshrc 
+	sed -i "s/[[:space:]]*export[[:space:]][[:space:]]*PATH=.*$/export PATH=\"${PATH//\//\\/}\"/g" ${HOME}/.zshrc 
+else
+	sed -e "s/[[:space:]]*export[[:space:]][[:space:]]*ZSH=.*$/export ZSH=${HOME//\//\\/}\/.oh-my-zsh/g" -i '' ${HOME}/.zshrc 
+	sed -e "s/[[:space:]]*export[[:space:]][[:space:]]*PATH=.*$/export PATH=\"${PATH//\//\\/}\"/g" -i '' ${HOME}/.zshrc 
+fi
 echo "setting zsh done"
 
 echo "setting tmux(${PLATFORM})..."
