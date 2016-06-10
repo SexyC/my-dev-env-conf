@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/User/think/.oh-my-zsh
+export ZSH=/Users/think/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -50,7 +50,16 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode osx)
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	# Linux
+	plugins=(git vi-mode)
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	# Mac OSX
+	plugins=(git vi-mode osx)
+else
+	plugins=(git vi-mode)
+fi
+
 
 # User configuration
 
