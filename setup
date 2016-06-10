@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+if [ ! ${HOME} ]; then 
+	echo "Failure, HOME env not set"
+	exit -1
+fi
+
+if [ ! `which curl` ]; then
+	echo "Failure, No curl, You should install curl first"
+	exit -1
+fi
+
+if [ ! `which zsh` ]; then
+	echo "Failed to setup zsh env: zsh not installed"
+else
+	# install oh-my-zsh
+	if [ ! -d ${HOME}/.oh-my-zsh ]; then
+		echo "oh-my-zsh not installed before, installing......"
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	fi
+
+	if [ -f ${HOME}/.zshrc ]; then
+		mv ${HOME}/.zshrc   ${HOME}/.zshrc.back
+	fi
+	ZSH_SETUP=1
+fi
+
+if [ ! `which tmux` ]; then
+	echo "Failed to setup tmux env: tmux not installed"
+else
+	if [ ! -f ${HOME}/.tmux.conf ]; then
+		mv ${HOME}/.tmux.conf   ${HOME}/.tmux.conf.back
+	fi
+	TMUX_SETUP=1
+fi
+
+if [ ! `which vim` ]; then
+	echo "Failed to setup vim env: vim not installed"
+else
+	VIM_SETUP=1
+fi
+
+if [[ ! ( $ZSH_SETUP && $TMUX_SETUP && $VIM_SETUP ) ]]; then
+	echo "Failure: zsh tmux and vim are not installed at all"
+	exit -1
+fi
+
+if [ -d ${HOME}/my-dev-env-conf ]; then
+	echo "my-dev-env-conf dir exists on home before, back it to my-dev-env-conf.back"
+	mv ${HOME}/my-dev-env-conf ${HOME}/my-dev-env-conf.back
+fi
+
+echo "downloading the my-dev-env-conf......"
+git clone https://github.com/SexyC/my-dev-env-conf.git ${HOME}/
+
+echo "setting zsh..."
+cp ${HOME}/my-dev-env-conf/zsh/.zshrc ${HOME}/.zshrc
+echo "setting zsh done"
+
+echo "setting tmux..."
+cp ${HOME}/my-dev-env-conf/tmux/.tmux.conf ${HOME}/.tmux.conf
+echo "setting tmux done"
+
+echo "setting vim..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/SexyC/my-vim-conf/master/install)"
+echo "setting vim done"
+

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cp ${HOME}/.zshrc ./zsh
+cp ${HOME}/.tmux.conf ./tmux
+git add --all
+git commit -m "update configure"
+git push origin master
+
