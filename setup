@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+PLATFORM="unknown"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	# Linux
+	PLATFORM="linux"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	# Mac OSX
+	PLATFORM="darwin"
+else
+	echo "Failure, unsupported system"
+	exit -1
+fi
+
 if [ ! ${HOME} ]; then 
 	echo "Failure, HOME env not set"
 	exit -1
@@ -58,7 +70,7 @@ cp ${HOME}/my-dev-env-conf/zsh/.zshrc ${HOME}/.zshrc
 echo "setting zsh done"
 
 echo "setting tmux..."
-cp ${HOME}/my-dev-env-conf/tmux/.tmux.conf ${HOME}/.tmux.conf
+cp ${HOME}/my-dev-env-conf/tmux/.tmux.conf.${PLATFORM} ${HOME}/.tmux.conf
 echo "setting tmux done"
 
 echo "setting vim..."

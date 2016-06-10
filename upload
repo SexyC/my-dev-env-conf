@@ -1,7 +1,25 @@
 #!/usr/bin/env bash
 
+PLATFORM="unknown"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	# Linux
+	PLATFORM="linux"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	# Mac OSX
+	PLATFORM="darwin"
+else
+	echo "Failure, unsupported system: $OSTYPE"
+	exit -1
+fi
+
 cp ${HOME}/.zshrc ./zsh
-cp ${HOME}/.tmux.conf ./tmux
+
+if [ $PLATFORM = 'linux' ]; then
+	cp ${HOME}/.tmux.conf ./tmux/.tmux.conf.${PLATFORM}
+elif [ $PLATFORM = 'darwin' ]; then
+	cp ${HOME}/.tmux.conf ./tmux/.tmux.conf.${PLATFORM}
+fi
+
 git add --all
 git commit -m "update configure"
 git push origin master
