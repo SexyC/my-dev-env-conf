@@ -1,3 +1,0 @@
-#sed -n "s/export\s+ZSH=.*/export\ ZSH=${HOME//\//\\/}\/.oh-my-zsh/g" ${HOME}/.zshrc  
-sed -e "s/[[:space:]]*export[[:space:]][[:space:]]*ZSH=.*$/export ZSH=${HOME//\//\\/}\/.oh-my-zsh/g" -i '' ${HOME}/.zshrc 
-sed -e "s/[[:space:]]*export[[:space:]][[:space:]]*PATH=.*$/export PATH=\"${PATH//\//\\/}\"/g" -i '' ${HOME}/.zshrc 
