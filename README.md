@@ -7,13 +7,13 @@ This is my development environment setup script for MacOS and Linux.
 **via curl**
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/SexyC/my-dev-env-conf/master/setup)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/SexyC/my-dev-env-conf/master/setup)"
 ```
 
 **via wget**
 
 ```bash
-sh -c "$(wget https://raw.githubusercontent.com/SexyC/my-vim-conf/master/instal://raw.githubusercontent.com/SexyC/my-dev-env-conf/master/setup -O -)"
+bash -c "$(wget https://raw.githubusercontent.com/SexyC/my-vim-conf/master/instal://raw.githubusercontent.com/SexyC/my-dev-env-conf/master/setup -O -)"
 ```
 
 ### Includes
