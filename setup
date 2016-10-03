@@ -65,7 +65,7 @@ if [ -d ${HOME}/my-dev-env-conf ]; then
 fi
 
 echo "downloading the my-dev-env-conf......"
-git clone https://github.com/SexyC/my-dev-env-conf.git ${HOME}/my-dev-env-conf
+git clone --recursive https://github.com/SexyC/my-dev-env-conf.git ${HOME}/my-dev-env-conf
 
 echo "setting zsh..."
 cp ${HOME}/my-dev-env-conf/zsh/.zshrc ${HOME}/.zshrc
