@@ -20,7 +20,7 @@ elif [ $PLATFORM = 'darwin' ]; then
 	cp ${HOME}/.tmux.conf ./tmux/.tmux.conf.${PLATFORM}
 fi
 
-git add --all
+git add *
 git commit -m "update configure"
 git push origin master
 
