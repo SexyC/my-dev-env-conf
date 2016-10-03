@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/think/.oh-my-zsh
+export ZSH=/Users/yayang/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -63,7 +63,7 @@ fi
 
 # User configuration
 
-export PATH="/usr/local/bin:/Users/think/development/apache-ant-1.9.4/bin:/usr/local/mongodb/bin:/Library/Java/JavaVirtualMachines/jdk1.7.0_76.jdk/Contents/Home/bin:/Users/think/Downloads/cocos2d-x-3.4/templates:/Users/think/Downloads/cocos2d-x-3.4/tools/cocos2d-console/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/think/development/adt-bundle-mac-x86_64-20140702/sdk/tools:/Users/think/development/adt-bundle-mac-x86_64-20140702/sdk/platform-tools"
+export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -94,6 +94,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias ll='ls -alhF'
 alias vi=vim
+alias vim='/usr/local/bin/vim'
+alias vimdiff='/usr/local/bin/vimdiff'
 alias -s html=vim
 alias -s rb=vim
 alias -s py=vim
@@ -106,7 +108,8 @@ alias -s gz='tar -xvf'
 alias -s tgz='tar -xvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-alias gowork="ssh mcarsns.tongji.edu.cn -p 10036 -l yy"
+alias gowork="ssh pa-dbc1127"
+alias goexp="ssh mcarsns.tongji.edu.cn -l yy -p 10036"
 
 # ASCII Art for zsh login
 echo
